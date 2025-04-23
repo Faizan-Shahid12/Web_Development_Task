@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     // Fetch data from the Express backend API (which will fetch from the external API)
-    fetch('http://localhost:3000/api/data')
+      fetch('https://webdevelopmenttask-production.up.railway.app/api/data')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
