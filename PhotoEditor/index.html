@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Editor JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container ">
+        <h2> Photo Editor</h2>
+        <div class="wrapper">
+            <div class="editor-panel">
+                <div class="filter">
+                    <label class="title">Filters</label>
+                    <div class="options">
+                        <button id="brightness" onclick="pressed(this)">Brightness</button>
+                        <button id="saturation" onclick="pressed(this)">Saturation</button>
+                        <button id="inversion"  onclick="pressed(this)">Inversion</button>
+                        <button id="grayscale"  onclick="pressed(this)">Grayscale</button>
+                    </div>
+                    <div class="slider">
+                        <div class="filter-info">
+                            <p class="name">Brightness</p>
+                            <p class="value">100%</p>
+                        </div>
+                        <input id="slider1" type="range" value="100" min="0" max="200" onclick="move()">
+                    </div>
+                </div>
+
+
+                <!-- Rotate wala part-->
+                <div class="Rotating" style="display: none;">
+                    <label class="title">Rotate & Flip</label>
+                    <div class="options">
+                        <button id="Blur" onclick="pressed1(this)">Blur</button>
+                        <button id="Sepia" onclick="pressed1(this)">Sepia</button>
+                        <button id="Rotate"  onclick="pressed1(this)">Rotate</button>
+                        <button id="Flip"  onclick="pressed1(this)">Flip</button>
+                    </div>
+                    <div class="slider">
+                        <div class="filter-info">
+                            <p class="name2">Blur</p>
+                            <p class="value2">0px</p>
+                        </div>
+                        <input id="slider2" type="range" value="0" min="0" max="100" onclick="move1()">
+                    </div>
+                </div>
+                    
+
+                <div class="rotate">
+                    <label id="title2" >Rotate & Flip</label>
+                    <div class="options">
+                        <button id="open" onclick="Open()">Open</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="preview-img">
+                <img id="img123" src="image-placeholder.svg" alt="preview-img">
+            </div>
+        </div>
+        <div class="controls">
+            <button class="reset-filter" onclick="clearfilter()">Reset Filters</button>
+            <div class="row">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="choose-img" onclick="select()">Choose Image</button>
+                <button class="save-img" onclick="save()">Save Image</button>
+            </div>
+        </div>
+    </div>
+    
+  </body>
+</html>
