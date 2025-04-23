@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="Style.css">
+    <title>Scientific Calculator</title>
+</head>
+<body>
+    <div class="Calc">
+
+        <h3> Scientific Calculator (Tried to make)</h3>
+        
+        <input type="text" id="show" disabled>
+
+        <div id="buttons">
+
+            <button onclick="clearDisplay1()"><---</button>
+            <button onclick="Sqrt()">√</button>
+            <button onclick="Log()">log x</button>
+            <button onclick="AntiLog()">10^x</button>
+
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="Sin()">Sin(x)</button>
+            <button onclick="Cos()">Cos(x)</button>
+            <button onclick="Tan()">Tan(x)</button>
+            
+            <button onclick="Display(Math.PI)">π</button>
+            <button onclick="Absolute()">|x|</button>
+            <button onclick="Power()">x^y</button> 
+            <button onclick="Divide()">/</button>
+
+            <button onclick="Display(7)">7</button>
+            <button onclick="Display(8)">8</button>
+            <button onclick="Display(9)">9</button>
+            <button onclick="Display('*')">*</button>
+
+            <button onclick="Display(4)">4</button>
+            <button onclick="Display(5)">5</button>
+            <button onclick="Display(6)">6</button>
+            <button onclick="Display('+')">+</button>
+
+            <button onclick="Display(1)">1</button>
+            <button onclick="Display(2)">2</button>
+            <button onclick="Display(3)">3</button>
+            <button onclick="Display('-')">-</button>
+
+            <button onclick="Sign()">+/-</button> 
+            <button onclick="Display(0)">0</button> 
+            <button onclick="Display('.')">.</button> 
+            <button onclick="SumCal()">=</button>
+
+        </div>
+       
+       <script>
+
+            let bool = 1;
+            let bool1 = 1;
+            let bool2 = 1;
+            let bool3 = 1;
+            let bool4 = 1;
+            let bool5 = 1;
+            let bool6 = 1;
+            let bool7 = 1;
+
+            function Display(value) 
+            {
+                document.getElementById('show').value += value;
+            }
+    
+            function clearDisplay() 
+            {
+                document.getElementById('show').value = "";
+            }
+
+            function clearDisplay1()
+            {
+                let result = document.getElementById('show').value;
+
+                if(result.endsWith('Sin(') || result.endsWith('Cos(') || result.endsWith('Tan(') || result.endsWith('Log(')  )
+                {
+                    result = result.substring(0,result.length-4);
+                }
+                else
+                {
+                    result = result.substring(0,result.length-1);    
+                }
+
+                document.getElementById('show').value = result;
+            }
+    
+            function SumCal() 
+            {
+                if(bool != 0 && bool1 != 0 && bool2 != 0 && bool3 != 0 && bool4 != 0 && bool5 != 0 && bool6 != 0 && bool7 != 0)
+                {
+                    let result = eval(document.getElementById('show').value);
+                    document.getElementById('show').value = result;
+                }
+                
+                if(bool == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("^")[0];
+                    let num2 = result.split("^")[1];
+
+                    document.getElementById('show').value = Math.pow(num1,num2)
+                }
+
+                if(bool1 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("Sin(")[1];
+                    document.getElementById('show').value = Math.sin(num1);
+                }
+
+                if(bool2 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("Cos(")[1];
+                    document.getElementById('show').value = Math.cos(num1);
+                }
+
+                if(bool3 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("Tan(")[1];
+                    document.getElementById('show').value = Math.tan(num1);
+                }
+
+                if(bool4 == 0)
+                {
+                    
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("/")[0];
+                    let num2 = result.split("/")[1];
+                    document.getElementById('show').value = num1/num2;
+                }
+                
+                if(bool5 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("Log(")[1];
+                    num1 = parseFloat(num1);
+                    document.getElementById('show').value = Math.log(num1);
+                }
+
+                if(bool6 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("^")[1];
+                    num1 = parseFloat(num1);
+                    document.getElementById('show').value = Math.pow(10,num1);
+                }
+
+                if(bool7 == 0)
+                {
+                    let result = document.getElementById('show').value;
+                    let num1 = result.split("√")[1];
+                    document.getElementById('show').value = Math.sqrt(num1);
+                }
+                    
+                bool = 1;
+                bool1 = 1;
+                bool2 = 1;
+                bool3 = 1;
+                bool4 = 1;
+                bool5 = 1;
+                bool6 = 1;
+                bool7 = 1;
+            }
+
+            function Absolute()
+            {
+                SumCal();
+                let result = document.getElementById('show').value;
+                result = Math.abs(result);
+                document.getElementById('show').value = result;
+            }
+            
+            function Power()
+            {
+              if(document.getElementById('show').value.length >= 2)
+              {
+                SumCal();
+              }
+
+              Display('^');
+              bool = 0;
+            }
+            
+            function Sin()
+            {
+              Display('Sin(');
+              bool1 = 0;
+            }
+            
+            function Cos()
+            {
+              Display('Cos(');
+              bool2 = 0;
+            }
+
+            function Tan()
+            {
+              Display('Tan(');
+              bool3 = 0;
+            }
+
+            function Divide()
+            {
+              Display('/');
+              bool4 = 0;
+            }
+
+            function Log()
+            {
+                Display('Log(');
+                bool5 = 0;
+            }
+
+            function AntiLog()
+            {
+                Display('10^');
+                bool6 = 0;
+            }
+
+            function Sqrt()
+            {
+                Display('√');
+                bool7 = 0;
+            }
+
+
+            function Sign() 
+            {
+                let value = document.getElementById('show').value;
+
+                if (value.startsWith('-'))
+                {
+                    document.getElementById('show').value = value.substring(1);
+                }
+                else
+                {
+                    document.getElementById('show').value = '-' + value;
+                }
+            }
+
+        </script>
+
+    </div>
+       
+</body>
+</html>
