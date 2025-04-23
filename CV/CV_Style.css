@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+    padding: 10px 20px;
+}
+
+#Links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#Links a {
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+    margin-left: 20px;
+}
+
+#Links a:hover {
+    text-decoration: underline;
+    color: aqua;
+}
+
+
+#MainContent {
+    display: flex;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+#Personal {
+    flex: 1 1 45%;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#Contact h1, #Interest h1, #Skills h1, #Language h1 {
+    font-size: 30px;
+    line-height: 0.5;
+}
+
+#Contact li a {
+    text-decoration: none;
+    color: black;
+}
+
+#Contact ul li, #Interest ul li, #Skills ul li, #Language ul li {
+    line-height: 0.5;
+    font-size: 20px;
+}
+
+#EduContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%;
+    gap: 20px;
+}
+
+#Education, #Experience {
+    border: 3px solid black;
+    padding: 20px;
+}
+
+#Education ul li, #Experience ul li {
+    line-height: 0.7;
+}
+
+#Education ul li h2, #Experience ul li h2 {
+    font-size: 23px;
+}
+
+#Education ul li h4, #Experience ul li h4 {
+    font-size: 18px;
+    color: black;
+}
+
+#Education ul li h5, #Experience ul li h5 {
+    color: gray;
+    display: inline;
+}
+
+#Marks {
+    margin-left: 20%;
+}
+
+#Experience p 
+{
+    line-height: normal;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    #Links a {
+        font-size: large;
+        margin-left: 20px;
+    }
+
+    #MainContent {
+        gap: 15px;
+    }
+
+    #Personal, #EduContainer {
+        flex: 1 1 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 10px;
+    }
+    
+    #Links a {
+        font-size: large;
+        margin-top: 20px;
+    }
+
+    #Personal, #EduContainer {
+        flex: 1 1 100%;
+    }
+
+    #MainContent {
+        gap: 15px;
+        padding: 10px;
+    }
+
+    #Contact ul li, #Interest ul li, #Skills ul li, #Language ul li, #Education ul li, #Experience ul li {
+        line-height: normal;
+    }
+    
+    #Education, #Experience {
+        width: 100%;
+    }
+
+    #Marks {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 10px 5px;
+    }
+
+    #Links {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    #Links a {
+        
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    
+    #Links a b {
+        display: none;
+    }
+
+    #Contact ul li, #Interest ul li, #Skills ul li, #Language ul li, #Education ul li, #Experience ul li {
+        line-height: normal;
+    }
+    #Contact ul li, #Interest ul li, #Skills ul li, #Language ul li 
+    {
+        font-size: small;
+    }
+
+    #MainContent {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 120px;
+    }
+
+    #Personal, #EduContainer {
+        flex: 1 1 100%;
+    }
+
+    #Education, #Experience {
+        width: 100%;
+    }
+
+    #Marks {
+        margin-left: 0;
+    }
+}
